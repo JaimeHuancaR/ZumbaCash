@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <meta charset="utf-8">
+    <title>ZumbaCash</title>
+    <link rel="stylesheet" href="style.css"> <!-- hay que vfer la refrencia a la hpja de estilos--> 
+</head>
+<body>
+    <header>
+        Tu plataforma favorita para aprender sobre educación financiera uwu
+    </header>
+
+    <div class="bar">
+        <img src="" alt="Logo ZumbaCash" class="logo-zumbacash">  <!--aca iria el logo del proyecto y el logo de forge -->
+        <img src="" alt="Logo Fundación Forge" class="logo-forge">
+        
+        <div class="coins-display">
+            <span class="contador-label">Coins: $</span> <!--intente agregar al funcionalidad del contador de monedas-->
+            <span id="contador">100</span>
+        </div>
+        
+        <button onclick="incrementar()">Incrementar</button>
+        <button onclick="decrementar()">Decrementar</button>
+        
+        <img src="" alt="Foto de perfil" class="profile-pic"> <!-- deberian de estar aca la foto de perfil, en caso dee implemntarse, por otro lado si se implementa la opcion de jugador femenino o masculino deberian de ser 2 fotos de perfil.-->
+        
+        <div class="dropdown"> <!--menu que desplega las palabras que tienen un viculo a otro sitio -->
+            <button class="dropbtn">Menú</button>
+            <div class="dropdown-content">
+                <a href="#">Nuestra misión</a> 
+                <a href="#">¿Quiénes somos?</a>
+                <a href="https://docs.google.com/document/d/e/2PACX-1vSky6qIEBdSooAWVHaqvQ0IyoD3AhOJm7npIFvsG6i05vUp-nPV5IrDSa0RcsoV7zh44_DAClFrBC8g/pub" target="_blank">Material complementario</a>
+                <a href="#">Contacto</a>
+                <a href="#">Configuración</a> 
+                <a href="#">Ayuda</a> 
+            </div>
+        </div>
+    </div>
+
+    <div class="panal">   <!--la estructura del panal de abeja --> 
+        <div class="panalColumna panalColumna1">
+            <div class="hexagon" id="hex-1-1"></div>
+            <div class="hexagon" id="hex-1-2"></div>
+            <div class="hexagon" id="hex-1-3"></div>
+        </div>
+        <div class="panalColumna panalColumna2">
+            <div class="hexagon" id="hex-2-1"></div>
+            <div class="hexagon" id="hex-2-2"></div>
+            <div class="hexagon" id="hex-2-3"></div>
+            <div class="hexagon" id="hex-2-4"></div>
+        </div>
+        <div class="panalColumna panalColumna3">
+            <div class="hexagon" id="hex-3-1"></div>
+            <div class="hexagon" id="hex-3-2"></div>
+            <div class="hexagon hexagon-start" id="hex-inicio"></div> <div class="hexagon" id="hex-3-3"></div>
+            <div class="hexagon" id="hex-3-4"></div>
+            <div class="hexagon" id="hex-3-5"></div>
+        </div>
+        <div class="panalColumna panalColumna4">
+            <div class="hexagon" id="hex-4-1"></div>
+            <div class="hexagon" id="hex-4-2"></div>
+            <div class="hexagon" id="hex-4-3"></div>
+            <div class="hexagon" id="hex-4-4"></div>
+        </div>
+        <div class="panalColumna panalColumna5">
+            <div class="hexagon" id="hex-5-1"></div>
+            <div class="hexagon" id="hex-5-2"></div>
+            <div class="hexagon" id="hex-5-3"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>
