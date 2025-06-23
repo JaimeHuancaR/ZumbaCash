@@ -1,0 +1,398 @@
+/* --- Paleta de Colores --- */
+:root {
+    --color-amarillo-claro: #FEFFDB;
+    --color-amarillo-medio: #FFC60B;
+    --color-naranja-oscuro: #FF8B00;
+    --color-gris-oscuro: #444444;
+    --color-verde-menta: #A8E6CF;
+    --color-azul-profundo: #1E3A8A;
+    --color-blanco: #FFFFFF;
+    --color-gris-claro: #E0E0E0;
+}
+
+/* --- Estilos Generales --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-amarillo-claro);
+    color: var(--color-gris-oscuro);
+    overflow-x: hidden; /* Evita el scroll horizontal en caso de desbordamiento */
+}
+
+/* --- Header Principal --- */
+.main-header {
+    background-color: var(--color-naranja-oscuro);
+    color: var(--color-blanco);
+    padding: 15px 0;
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Barra de Navegación Personalizada --- */
+.custom-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-gris-oscuro);
+    padding: 10px 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    color: var(--color-blanco);
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+
+.navbar-left, .navbar-center, .navbar-right {
+    display: flex;
+    align-items: center;
+    /* Para manejar el espacio en pantallas pequeñas */
+    flex-basis: auto; 
+}
+
+/* En pantallas pequeñas, forzar a que ocupen todo el ancho */
+@media (max-width: 768px) {
+    .navbar-left, .navbar-center, .navbar-right {
+        flex-basis: 100%;
+        justify-content: center; /* Centrar elementos en móvil */
+        margin-bottom: 10px;
+    }
+    .navbar-right {
+        flex-wrap: wrap; /* Asegura que los contadores y botones se envuelvan */
+    }
+    .profile-pic {
+        margin-left: 0 !important; /* Elimina el margen a la izquierda en móvil */
+        margin-top: 10px; /* Añade margen arriba */
+    }
+}
+
+
+/* Logos */
+.logo-zumbacash, .logo-forge {
+    height: 45px;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+/* Foto de perfil */
+.profile-pic {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--color-amarillo-medio);
+    object-fit: cover;
+    margin-left: 20px;
+}
+
+/* Contadores (Coins y Puntos) */
+.counter-display {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--color-amarillo-medio);
+}
+
+.counter-label {
+    color: var(--color-blanco);
+}
+
+/* Botones de acción (Incrementar/Decrementar Coins) */
+.btn-action {
+    background-color: var(--color-amarillo-medio);
+    color: var(--color-gris-oscuro);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-right: 10px;
+}
+
+.btn-action:hover {
+    background-color: var(--color-naranja-oscuro);
+    color: var(--color-blanco);
+    transform: translateY(-1px);
+}
+
+/* --- Menú Desplegable (Custom) --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: var(--color-amarillo-medio);
+    color: var(--color-gris-oscuro);
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.dropbtn:hover {
+    background-color: var(--color-naranja-oscuro);
+    color: var(--color-blanco);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--color-blanco);
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.dropdown-content a {
+    color: var(--color-gris-oscuro);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--color-gris-claro);
+    color: var(--color-azul-profundo);
+}
+
+.dropdown.show .dropdown-content {
+    display: block;
+}
+
+/* --- Estilos del Panal de Abeja (orientación rotada) --- */
+.panal {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Asegura que la primera fila esté arriba */
+    margin-top: 50px;
+    position: relative;
+    padding: 20px;
+}
+
+.panalColumna {
+    display: flex;
+    flex-direction: column; /* Las columnas siguen apilando hexágonos */
+}
+
+/* Ajustes de margen para la nueva orientación de hexágonos */
+/* Las columnas impares (1, 3, 5) necesitan un margen superior para el offset */
+.panalColumna:nth-child(odd) {
+    margin-top: 50px; /* Ajusta este valor para el offset perfecto de la colmena rotada */
+}
+/* Las columnas pares (2, 4) se mantienen arriba, o tienen menos margen */
+.panalColumna:nth-child(even) {
+    margin-top: 0;
+}
+
+
+.hexagon {
+    /* Nueva orientación: Rotado 90 grados */
+    width: 100px; /* Esto ahora es la altura visual */
+    height: 115.47px; /* Esto ahora es el ancho visual */
+    background-color: var(--color-amarillo-medio);
+    margin: 5px; /* Espacio entre hexágonos */
+    position: relative;
+    /* La clave es rotar el clip-path o el elemento directamente */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transform: rotate(90deg); /* ¡Rota el hexágono! */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    color: var(--color-gris-oscuro);
+    cursor: pointer;
+    transition: background-color 0.3s ease, border 0.3s ease, transform 0.1s ease;
+    border: 2px solid transparent;
+
+    /* Para que el texto no se vea rotado, puedes rotarlo de vuelta */
+    &::before { /* O simplemente poner el texto en un span dentro del div y rotar el span */
+        content: attr(data-id); /* Si quieres mostrar el ID del hexágono */
+        transform: rotate(-90deg); /* Rota el contenido de vuelta */
+        color: inherit; /* Hereda el color del texto */
+        font-weight: bold;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-90deg); /* Centra y contra-rota */
+        white-space: nowrap; /* Evita que el texto se rompa */
+    }
+}
+/* Ajusta el contenido dentro del hexágono para que no esté rotado */
+/* Esto requiere que el contenido del hexágono sea un span o div interno */
+.hexagon span { /* Si pones el texto dentro de un <span> en el HTML */
+    transform: rotate(-90deg); /* Rota el texto de vuelta */
+    display: block; /* Para que la rotación afecte bien */
+}
+
+
+.hexagon:hover {
+    background-color: var(--color-naranja-oscuro);
+    color: var(--color-blanco);
+    transform: rotate(90deg) scale(1.05); /* Escala Y rota para mantener la orientación */
+}
+
+/* Hexágono de inicio */
+.hexagon-start {
+    background-color: var(--color-azul-profundo);
+    border: 3px solid var(--color-amarillo-medio);
+    color: var(--color-blanco);
+}
+.hexagon-start::before {
+    color: var(--color-blanco); /* Asegura que el texto del hexágono de inicio sea blanco */
+}
+
+
+/* Hexágono activo/seleccionado */
+.hexagon.active {
+    background-color: var(--color-naranja-oscuro);
+    border: 3px solid var(--color-verde-menta);
+    color: var(--color-blanco);
+}
+.hexagon.active::before {
+    color: var(--color-blanco);
+}
+
+
+/* --- Estilos para la Cápsula Interactiva (Pop-up) --- */
+.capsula-interactiva {
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-gris-claro);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    padding: 30px;
+    max-width: 550px;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    animation: fadeInScale 0.3s ease-out;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.capsula-interactiva h2 {
+    color: var(--color-azul-profundo);
+    margin-bottom: 15px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.capsula-interactiva p {
+    color: var(--color-gris-oscuro);
+    margin-bottom: 25px;
+    line-height: 1.7;
+    font-size: 1.15em;
+}
+
+.opciones-capsula {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.opcion-btn {
+    background-color: var(--color-amarillo-medio);
+    color: var(--color-gris-oscuro);
+    border: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.05em;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    width: 100%;
+}
+
+.opcion-btn:hover {
+    background-color: var(--color-naranja-oscuro);
+    color: var(--color-blanco);
+    transform: translateY(-2px);
+}
+
+.opcion-btn:disabled {
+    background-color: var(--color-gris-claro);
+    color: #888;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.cerrar-capsula {
+    background-color: var(--color-gris-oscuro);
+    color: var(--color-blanco);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+}
+
+.cerrar-capsula:hover {
+    background-color: #222;
+}
+
+/* --- Responsive Design Básico para Panal rotado --- */
+@media (max-width: 768px) {
+    .panal {
+        flex-direction: column; /* Apila las columnas del panal */
+        align-items: center; /* Centra las columnas */
+    }
+
+    .panalColumna {
+        flex-direction: row; /* Apila los hexágonos horizontalmente dentro de una columna para móvil */
+        flex-wrap: wrap; /* Permite que los hexágonos se envuelvan */
+        justify-content: center;
+        margin-top: 0 !important; /* Elimina todos los márgenes de columna */
+        margin-bottom: 10px; /* Espacio entre las "filas" del panal apilado */
+    }
+
+    .hexagon {
+        transform: rotate(0deg); /* En móvil, quizás quieras que no estén rotados */
+        width: 80px; /* Ajusta el tamaño para móvil */
+        height: 92.37px; /* Mantén la proporción (80 / 2 * sqrt(3)) */
+        /* Si usas ::before para texto y lo rotas de vuelta, necesitas ajustarlo aquí */
+        &::before {
+            transform: translate(-50%, -50%) rotate(0deg); /* Rota el texto de vuelta */
+        }
+        /* Si pones el texto en un span y lo rotas de vuelta */
+        span {
+            transform: rotate(0deg);
+        }
+    }
+
+    .hexagon:hover {
+        transform: rotate(0deg) scale(1.05); /* Ajusta hover para la nueva orientación */
+    }
+
+    /* Resetear márgenes adicionales de las columnas en móvil */
+    .panalColumna:nth-child(odd),
+    .panalColumna:nth-child(even) {
+        margin-top: 0;
+    }
+}

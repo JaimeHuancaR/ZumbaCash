@@ -3,41 +3,49 @@
 <head>
     <meta charset="utf-8">
     <title>ZumbaCash</title>
-    <link rel="stylesheet" href="style.css"> <!-- hay que vfer la refrencia a la hpja de estilos--> 
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <header>
+    <header class="main-header">
         Tu plataforma favorita para aprender sobre educación financiera uwu
     </header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                </ul>
+
+    <nav class="custom-navbar">
+        <div class="navbar-left">
+            <img src="ruta/a/tu/logo_zumbacash.png" alt="Logo ZumbaCash" class="logo-zumbacash"> 
+            <img src="ruta/a/tu/logo_forge.png" alt="Logo Fundación Forge" class="logo-forge">
+        </div>
+        
+        <div class="navbar-center">
+            <div class="dropdown">
+                <button class="dropbtn">Menú</button>
+                <div class="dropdown-content">
+                    <a href="#">Nuestra misión</a> 
+                    <a href="#">¿Quiénes somos?</a>
+                    <a href="https://docs.google.com/document/d/e/2PACX-1vSky6qIEBdSooAWVHaqvQ0IyoD3AhOJm7npIFvsG6i05vUp-nPV5IrDSa0RcsoV7zh44_DAClFrBC8g/pub" target="_blank">Material complementario</a>
+                    <a href="#">Contacto</a>
+                    <a href="#">Configuración</a> 
+                    <a href="#">Ayuda</a> 
+                </div>
             </div>
         </div>
+
+        <div class="navbar-right">
+            <div class="counter-display">
+                <span class="counter-label">Coins: $</span>
+                <span id="contador-coins">100</span>
+            </div>
+            <div class="counter-display">
+                <span class="counter-label">Puntos: </span>
+                <span id="contador-puntos">0</span>
+            </div>
+            <button class="btn-action" onclick="incrementarCoins()">+ Coins</button>
+            <button class="btn-action" onclick="decrementarCoins()">- Coins</button>
+            <img src="ruta/a/tu/foto_perfil_default.png" alt="Foto de perfil" class="profile-pic">
+        </div>
     </nav>
-    <div class="panal">   <!--la estructura del panal de abeja --> 
+
+    <div class="panal">
         <div class="panalColumna panalColumna1">
             <div class="hexagon" id="hex-1-1"></div>
             <div class="hexagon" id="hex-1-2"></div>
@@ -52,9 +60,9 @@
         <div class="panalColumna panalColumna3">
             <div class="hexagon" id="hex-3-1"></div>
             <div class="hexagon" id="hex-3-2"></div>
-            <div class="hexagon hexagon-start" id="hex-inicio"></div> <div class="hexagon" id="hex-3-3"></div>
+            <div class="hexagon hexagon-start" id="hex-inicio"></div>
+            <div class="hexagon" id="hex-3-3"></div>
             <div class="hexagon" id="hex-3-4"></div>
-            <div class="hexagon" id="hex-3-5"></div>
         </div>
         <div class="panalColumna panalColumna4">
             <div class="hexagon" id="hex-4-1"></div>
@@ -69,6 +77,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script> 
+    <script src="script.js"></script>
 </body>
 </html>
