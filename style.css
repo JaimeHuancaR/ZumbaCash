@@ -177,7 +177,7 @@ body {
 .panal {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Asegura que la primera fila esté arriba */
+    align-items: center; /* Asegura que la primera fila esté arriba */
     margin-top: 50px;
     position: relative;
     padding: 20px;
